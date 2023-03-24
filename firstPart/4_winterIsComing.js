@@ -1,15 +1,19 @@
 const calcPairsOfGloves = (arr) => {
-    const collection = {};
-    arr.forEach(gloveColor => {
-        if (!collection.hasOwnProperty(gloveColor)) {
-            collection[gloveColor] = 0;
+    const collection = arr.reduce((acc, gloveColor) => {
+        if (!acc.hasOwnProperty(gloveColor)) {
+            acc[gloveColor] = 0;
         }
-        collection[gloveColor] += 1;
-    });
+        acc[gloveColor] += 1;
+        return acc;
+    }, {});
     return Object.values(collection)
-        .map(num => Math.floor(num / 2))
-        .reduce((sum, num) => sum + num, 0);
+        .reduce((sum, num) => sum + Math.floor(num / 2), 0);
 }
+
+
+
+
+
 
 /////////////////////////////////////////////////
 

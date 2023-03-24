@@ -1,14 +1,11 @@
 const findMostOccuredNum = (numbers) => {
-    const collection = {};
-    numbers.forEach(num => {
-        if (typeof num !== 'number') {
-            return;
+    const collection = numbers.reduce((acc, num) => {
+        if (!acc.hasOwnProperty(num)) {
+            acc[num] = 0;
         }
-        if (!collection.hasOwnProperty(num)) {
-            collection[num] = 0;
-        }
-        collection[num] += 1;
-    });
+        acc[num] += 1;
+        return acc;
+    }, {});
     return Object.keys(collection).reduce((a, b) => collection[a] > collection[b] ? a : b);
 }
 

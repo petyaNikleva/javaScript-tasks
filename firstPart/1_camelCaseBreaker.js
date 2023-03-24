@@ -4,15 +4,15 @@ const breakUpCamelCase = (value) => {
     if (typeof value !== 'string') {
         return;
     }
-    const result = [];
-    const stringAsArr = value.split('');
-    stringAsArr.forEach((character, index) => {
-        if (isUpperCase(character) && index !== 0) {
-            result.push(' ');
-        }
-        result.push(character);
-    });
-    return (result.join(''));
+    let result = '';
+    for (const character of value) {
+        if (isUpperCase(character)) {
+            result += ' ';
+        };
+        result += character;
+
+    }
+    return result;
 }
 
 ////////////////////////////////////////////

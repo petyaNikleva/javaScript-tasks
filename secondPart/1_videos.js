@@ -1,11 +1,9 @@
-const convertToJSON = (arr) => {
-    if (Array.isArray(arr)) {
-        const collection = {}
-        arr.forEach(video => {
-            collection[video.id] = video.title
-        })
-        return JSON.stringify(collection);
-    }
+const convertToSingleObj = (arr) => {
+    if (!Array.isArray(arr)) return;
+    return arr.reduce((acc, video) => {
+        acc[video.id] = video.title;
+        return acc;
+    }, {})
 }
 
 const videos = [{
@@ -25,8 +23,8 @@ const videos = [{
 
 ///////////////////////////////////////////
 
-console.log(convertToJSON(videos));
-console.log(convertToJSON('ss'));
+console.log(convertToSingleObj(videos));
+console.log(convertToSingleObj('ss'));
 
 //  expected:
 //   {

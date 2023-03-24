@@ -21,12 +21,15 @@ const boxarts = [
     }
 ]
 
-
 const findURLwithBiggestArea = (pics) => {
-    const maxPic = pics.map((picture) => {
+    const maxPic = pics.reduce((acc, picture) => {
         const area = picture.width * picture.height;
+        if (acc?.area > area) {
+            return acc;
+        }
         return { url: picture.url, area }
-    }).reduce((max, curr) => (max.area > curr.area) ? max : curr);
+    }, {})
+
     return maxPic.url;
 }
 

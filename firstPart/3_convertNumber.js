@@ -14,9 +14,12 @@ const convertRomanToArabicNum = (romanNum) => {
     for (let i = 0; i < arr.length; i++) {
         const first = numbers[arr[i]];
         const second = numbers[arr[i + 1]] || 0;
-        first >= second
-            ? arabicNum += first
-            : (arabicNum += second - first, i++);
+        if (first >= second) {
+            arabicNum += first;
+        } else {
+            arabicNum += second - first;
+            i++;
+        }
     }
     return arabicNum;
 }

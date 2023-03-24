@@ -1,11 +1,11 @@
 const removeNullandUndefinedValues = (obj) => {
-    const convertedObj = Object.assign({}, obj)
-    Object.keys(convertedObj).forEach(key => {
-        if (convertedObj[key] === null || convertedObj[key] === undefined) {
-            delete convertedObj[key];
+    const resultObj = {};
+    Object.keys(obj).forEach(key => {
+        if (obj[key] !== null && obj[key] !== undefined) {
+            resultObj[obj[key]] = obj[key];
         }
-    });
-    return convertedObj;
+    })
+    return resultObj;
 }
 
 /////////////////////

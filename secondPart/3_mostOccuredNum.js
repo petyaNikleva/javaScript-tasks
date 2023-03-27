@@ -6,7 +6,7 @@ const findMostOccuredNum = (numbers) => {
         acc[num] += 1;
         return acc;
     }, {});
-    return Object.keys(collection).reduce((a, b) => collection[a] > collection[b] ? a : b);
+    return Object.keys(collection).reduce((mostOccured, current) => collection[mostOccured] > collection[current] ? mostOccured : current);
 }
 
 ///////////////////////////////////////////////

@@ -23,11 +23,10 @@ const getPosts = async () => {
 const addUsersPosts = async () => {
     try {
         const [users, posts] = await Promise.all([getUsers(), getPosts()]);
-        const result = users.map(user => {
+        return users.map(user => {
             const myPosts = posts.filter(post => post.userId === user.id);
             return { ...user, myPosts };
         });
-        return result;
     } catch (error) {
         console.log('Error adding posts to users:', error);
         throw error;
@@ -35,7 +34,7 @@ const addUsersPosts = async () => {
 }
 
 addUsersPosts().then((usersWithPosts) => {
-    return usersWithPosts;
+    console.log(usersWithPosts);
 }).catch((error) => {
     console.log('Error:', error);
 });

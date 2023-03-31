@@ -2,7 +2,7 @@ const availableBanknotes = [1, 5, 10, 20, 50, 100, 500];
 
 const banknotesWithHighestNominal = (wantedSum) => {
     if (typeof wantedSum !== 'number') return;
-    let result = [];
+    const result = [];
     for (let i = availableBanknotes.length - 1; i >= 0; i--) {
         const banknoteWithNominal = availableBanknotes[i];
         while (banknoteWithNominal <= wantedSum) {

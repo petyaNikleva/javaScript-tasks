@@ -2,7 +2,7 @@ const entries = ([['a', 1], ['b', 2]])
 
 const customFromEntries = (arrOfEntires) => {
     const obj = {};
-    arrOfEntires.forEach(pair => obj[pair[0]] = pair[1])
+    arrOfEntires.forEach(([key, value]) => obj[key] = value);
     return obj;
 }
 
